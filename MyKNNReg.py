@@ -16,8 +16,8 @@ class MyKNNReg:
         return f"MyKNNReg class: k={self.k}"
 
     def fit(self, X: pd.DataFrame, y: pd.Series):
-        self.X = X
-        self.y = y
+        self.X = X.reset_index(drop=True)
+        self.y = y.reset_index(drop=True)
         self.train_size = (X.shape[0], X.shape[1])
 
     def predict(self, X_test: pd.DataFrame):
